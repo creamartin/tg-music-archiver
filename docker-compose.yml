@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  crawler:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.crawler
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+
+  navidrome:
+    image: deluan/navidrome:latest
+    restart: unless-stopped
+    ports:
+      - "4533:4533"
+    environment:
+      ND_MUSICFOLDER: /music
+      ND_DATAFOLDER: /data
+      ND_LOGLEVEL: info
+    volumes:
+      - ./data/media:/music
+      - ./data/navidrome:/data

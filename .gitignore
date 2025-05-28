@@ -1,0 +1,27 @@
+# Environment variables
+.env
+
+# SQLite DBs and app data
+data/
+!data/README.md  # Optional: keep a placeholder file if needed
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# Telethon session files
+*.session
+*.session-journal
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/

@@ -1,0 +1,7 @@
+telethon
+python-dotenv
+loguru
+fastapi
+uvicorn
+apscheduler
+cryptg
